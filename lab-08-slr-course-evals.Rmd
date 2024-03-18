@@ -96,7 +96,24 @@ evals %>%
 2.  Visualize and describe the relationship between `score` and `bty_avg`.
 
 ```{marginfigure}
+
 **Hint:** See the help page for the function at http://ggplot2.tidyverse.org/reference/index.html.
+
+```
+
+```{r}
+#| labels: relationship_score_outcome
+#| eval: true
+
+evals %>%
+  ggplot(aes(x = bty_avg, y = score)) +
+  geom_point(alpha = 0.4) +
+  geom_smooth(method = "lm",
+              se = FALSE) +
+  xlab("Beauty Average Rating") +
+  ylab("Average Professor Evaluation Score") +
+  ggtitle("Scatter plot of Average Beauty Rating to Average Evaluation Score")
+
 ```
 
 3.  Recreate the scatterplot from Exercise 2, but this time use\

@@ -46,7 +46,7 @@ We'll use the **tidyverse** package for much of the data wrangling and visualisa
 These packages are already installed for you.
 You can load them by running the following in your Console:
 
-```{r}
+```{r, eval=TRUE}
 library(tidyverse) 
 library(tidymodels)
 library(openintro)
@@ -65,10 +65,33 @@ You can also find this information [here](https://www.openintro.org/data/index.p
 
 1.  Visualize the distribution of `score`.
     Is the distribution skewed?
+
+**Answer:** The distribution is skewed to the right, indicating a higher average score.
+
     What does that tell you about how students rate courses?
-    Is this what you expected to see?
-    Why, or why not?
+
+**Answer:** This tells me that more students rate their courses and professors highly.
+
+    Is this what you expected to see? Why, or why not?
+
+**Answer:** This is not what I expected to see because many of my friends who go to public institutions purposely give their professors very low scores.
+
     Include any summary statistics and visualizations you use in your response.
+    
+```{r}
+#| labels: distribution_of_score
+#| eval: true
+
+evals %>%
+  ggplot(aes(x = score)) +
+  geom_histogram()
+
+evals %>%
+  summarise(means = mean(score), medians = median(score), mins = min(score), maxs = max(score), sds = sd(score),
+            q1 = quantile(score, probs = 0.25),
+            q3 = quantile(score, probs = 0.75))
+
+```
 
 2.  Visualize and describe the relationship between `score` and `bty_avg`.
 

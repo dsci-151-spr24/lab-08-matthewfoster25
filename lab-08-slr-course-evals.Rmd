@@ -257,9 +257,25 @@ evals <- evals %>%
 13. Fit a new linear model called `score_rank_relevel_fit` to predict average professor evaluation `score` based on `rank_relevel` of the professor.
     This is the new (releveled) variable you created in Exercise 12.
     Based on the regression output, write the linear model and interpret the slopes and intercept in context of the data.
-   
+
+``` {r}
+#| label: score_rank_relevel_fit
+#| eval: true
+
+score_rank_relevel_fit <- linear_reg() %>%
+  set_engine("lm") %>%
+  fit(score~rank_relevel, data = evals) %>%
+  tidy()
+
+score_rank_relevel_fit
+```
+
+**Answer:**
+$$\widehat{score} = 4.14 + 0.14\times teaching + 0.02\times Tenure track$$
+The average rating for a tenured professor is 4.14. The average rating for a teaching track professor is 0.14 points higher than a tenure professor. The average rating for a tenure track professor is 0.02 points higher than a tenured professor. 
 
 14. Create another new variable called `tenure_eligible` that labels `"teaching"` faculty as `"no"` and labels `"tenure track"` and `"tenured"` faculty as `"yes"`.
 
+**n/a**
 
 🧶 ✅ ⬆️ Knit, *commit, and push your changes to GitHub with an appropriate commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards and review the md document on GitHub to make sure you're happy with the final state of your work.*

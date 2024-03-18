@@ -195,6 +195,24 @@ For an average beauty rating of zero, the average evaluation rating is 3.88. Thi
 
 9.  Fit a new linear model called `score_gender_fit` to predict average professor evaluation `score` based on `gender` of the professor.
     Based on the regression output, write the linear model and interpret the slope and intercept in context of the data.
+    
+```{r}
+#| labels: score_gender
+#| eval: true
+
+score_gender_fit <- linear_reg() %>%
+  set_engine("lm") %>%
+  fit(score~gender, data = evals) %>%
+  tidy()
+
+score_gender_fit
+
+```
+
+**Answer:**
+The model is: score = 4.09 + 0.14 * Male.
+
+A male professor subject on average scores 0.14 higher an evaluations then a female professors. On average, a female professor scores 4.09 on the ratings. 
 
 10. What is the equation of the line corresponding to male professors?
     What is it for female professors?

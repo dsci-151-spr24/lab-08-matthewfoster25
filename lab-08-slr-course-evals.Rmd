@@ -216,6 +216,13 @@ A male professor subject on average scores 0.14 higher an evaluations then a fem
 
 10. What is the equation of the line corresponding to male professors?
     What is it for female professors?
+    
+**Answer:**
+*For Males:*
+Score = 4.09 + 0.14 = 4.23
+
+*For Females:*
+Score = 4.09
 
 11. Fit a new linear model called `score_rank_fit` to predict average professor evaluation `score` based on `rank` of the professor.
     Based on the regression output, write the linear model and interpret the slopes and intercept in context of the data.

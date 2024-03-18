@@ -227,6 +227,21 @@ Score = 4.09
 11. Fit a new linear model called `score_rank_fit` to predict average professor evaluation `score` based on `rank` of the professor.
     Based on the regression output, write the linear model and interpret the slopes and intercept in context of the data.
 
+``` {r}
+#| label: score_rank_fit
+#| eval: true
+
+score_rank_fit <- linear_reg() %>%
+  set_engine("lm") %>%
+  fit(score~rank, data = evals) %>%
+  tidy()
+
+score_rank_fit
+```
+
+**Answer:**
+The model is: Score = 4.28 - -0.12 * Tenure Track - 0.14 * Tenured.
+
 12. Create a new variable called `rank_relevel` where `"tenure track"` is the baseline level.
 
 13. Fit a new linear model called `score_rank_relevel_fit` to predict average professor evaluation `score` based on `rank_relevel` of the professor.
